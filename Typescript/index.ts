@@ -1,5 +1,5 @@
 /**
- * This is the BoardFoot program
+ * This is the rock, papaer, scissors game
  *
  * By: Kenny Le
  * Version: 1.0

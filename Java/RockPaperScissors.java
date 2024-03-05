@@ -1,5 +1,5 @@
 /*
-* This program checks length of wood
+* This program is the rock, paoer, scissors game
 *
 * @author  Kenny Le
 * @version 1.0
@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 /**
-* This is the BoardFoot program.
+* This is the Rock Paper Scissors program.
 */
 final class RockPaperScissors {
     /**

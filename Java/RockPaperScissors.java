@@ -28,9 +28,8 @@ final class RockPaperScissors {
     /**
     * Finds the length of the wood for a board foot.
     *
-    * @param width of the wood
-    * @param height of the wood
-    * @return length needed to be considered a board foot
+    * @param playerChoice 
+    * @return game results
     */
     static String gameResults(final String playerChoice) {
         Random randomNumber = new Random();

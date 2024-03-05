@@ -9,14 +9,14 @@
 import { createPrompt } from 'bun-promptx'
 
 function gameResults(playerChoice) {
-// this function calculates the length of a boardFoot
+  // this function checks the game result
   const userChoice = ['R', 'P', 'S'];
   const computerChoice = userChoice[Math.floor(Math.random() * userChoice.length)];
 
   console.log(`Your choice: ${playerChoice}`);
   console.log(`Computer's choice: ${computerChoice}`);
 
-if (playerChoice === computerChoice) {
+  if (playerChoice === computerChoice) {
         return 'result1'
     } else if (
         (playerChoice === 'R' && computerChoice === 'S') ||
@@ -32,7 +32,7 @@ if (playerChoice === computerChoice) {
 
 while (true) { 
   const playerChoice = prompt('Choose Rock (R), Paper (P) or Scissors (S): ')
-//  playRound(playerChoice.toUpperCase())
+  //  playRound(playerChoice.toUpperCase())
   if (!/^[rps]$/i.test(playerChoice)) {
     console.log('Invalid Input')
     break
@@ -49,3 +49,4 @@ while (true) {
   }
 }
 console.log('\nDone.')
+

@@ -17,35 +17,35 @@ function gameResults(playerChoice) {
   console.log(`Computer's choice: ${computerChoice}`);
 
   if (playerChoice === computerChoice) {
-        return 'result1'
-    } else if (
-        (playerChoice === 'R' && computerChoice === 'S') ||
+    return 'result1'
+  } else if (
+    (playerChoice === 'R' && computerChoice === 'S') ||
         (playerChoice === 'S' && computerChoice === 'P') ||
         (playerChoice === 'P' && computerChoice === 'R')
-    ) {
-        return 'result2'
-    } else {
-        return 'result3'
-    }
+  ) {
+    return 'result2'
+  } else {
+    return 'result3'
+  }
 }
-
 
 while (true) { 
   const playerChoice = prompt('Choose Rock (R), Paper (P) or Scissors (S): ')
-  //  playRound(playerChoice.toUpperCase())
+  // checks if playerChoice consists of only one character 
+  // and that character is either 'r', 'p', or 's',
   if (!/^[rps]$/i.test(playerChoice)) {
     console.log('Invalid Input')
     break
   } else {
-      const finalResult = gameResults(playerChoice)
-      if (finalResult == 'result1') {
-        console.log("It's a tie!")
-      } else if (finalResult == 'result2') {
-        console.log("You win!")
-      } else {
-        console.log("Computer wins!")
-      }
-      break
+    const finalResult = gameResults(playerChoice)
+    if (finalResult == 'result1') {
+      console.log("It's a tie!")
+    } else if (finalResult == 'result2') {
+      console.log("You win!")
+    } else {
+      console.log("Computer wins!")
+    }
+    break
   }
 }
 console.log('\nDone.')

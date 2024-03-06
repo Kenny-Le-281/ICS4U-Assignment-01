@@ -1,24 +1,39 @@
 /*
-* This program is the rock, paoer, scissors game
+* This program is the rock, paper, scissors game.
 *
 * @author  Kenny Le
 * @version 1.0
 * @since   2024-03-01
 */
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
 * This is the Rock Paper Scissors program.
 */
 final class RockPaperScissors {
     /**
+     * Constants.
+     */
+    public static final String ROCK = "R";
+
+    /**
+     * Constants.
+     */
+    public static final String PAPER = "P";
+
+    /**
+     * Constants.
+     */
+    public static final String SCISSORS = "S";
+
+    /**
     * Prevent instantiation.
     * Throw an exception IllegalStateException.
-    * if this is ever called
+    * if this is ever called.
     *
-    * @throws IllegalStateException if this is ever called
+    * @throws IllegalStateException if this is ever called.
     *
     */
     private RockPaperScissors() {
@@ -26,31 +41,35 @@ final class RockPaperScissors {
     }
 
     /**
-    * Finds the length of the wood for a board foot.
+    * Finds the gameResults of the game.
     *
-    * @param playerChoice 
-    * @return game results
+    * @param playerChoice user input
+    * @return gameResults
     */
     static String gameResults(final String playerChoice) {
-        Random randomNumber = new Random();
-        String[] choices = {"R", "P", "S"};
-        int computerIndex = randomNumber.nextInt(3);
-        String computerChoice = choices[computerIndex];
+        final Random randomNumber = new Random();
+        final String[] choices = {ROCK, PAPER, SCISSORS};
+        final int choiceOption = 3;
+        final int computerIndex = randomNumber.nextInt(choiceOption);
+        final String computerChoice = choices[computerIndex];
+        let results;
 
         System.out.println("User chooses: " + playerChoice);
         System.out.println("Computer chooses: " + computerChoice);
 
         if (playerChoice.equals(computerChoice)) {
-               return "result1";
+            results = "tie";
         } else if (
-                (playerChoice.equals("R") && computerChoice.equals("S")) ||
-                (playerChoice.equals("P") && computerChoice.equals("R")) ||
-                (playerChoice.equals("S") && computerChoice.equals("P"))
-            ) {
-                return "result2";
-            } else {
-                return "result3";
-            } 
+                playerChoice.equals(ROCK) && computerChoice.equals(SCISSORS)
+                || playerChoice.equals(PAPER) && computerChoice.equals(ROCK)
+                || playerChoice.equals(SCISSORS)
+                    && computerChoice.equals(PAPER)) {
+            results = "win";
+        } else {
+            results = "loss";
+        } 
+
+        return results;
     }
 
     /**
@@ -66,14 +85,14 @@ final class RockPaperScissors {
         while (true)  {
             System.out.print("Enter Rock(R), Paper(P) or Scissors(S): ");
             final String playerChoice = scanner.nextLine().toUpperCase();
-            if (!playerChoice.equals("R") && !playerChoice.equals("P") && !playerChoice.equals("S")) {
+            if (!playerChoice.equals(ROCK) && !playerChoice.equals(PAPER) && !playerChoice.equals(SCISSORS)) {
                 System.out.println("Invalid Input!");
                 break;
             } else {
                 final String finalResult = gameResults(playerChoice);
-                if (finalResult == "result1") {
+                if (finalResult.equals("tie")) {
                     System.out.println("It's a tie!");
-                } else if (finalResult == "result2") {
+                } else if (finalResult.equals("win")) {
                     System.out.println("You win!");
                 } else {
                     System.out.println("You lose!");

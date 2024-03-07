@@ -29,6 +29,21 @@ final class RockPaperScissors {
     public static final String SCISSORS = "S";
 
     /**
+     * Constants.
+     */
+    private static final String TIE = "tie";
+
+    /**
+     * Constants.
+     */
+    private static final String WIN = "win";
+
+    /**
+     * Constants.
+     */
+    private static final String LOSS = "loss";
+
+    /**
     * Prevent instantiation.
     * Throw an exception IllegalStateException.
     * if this is ever called.
@@ -52,22 +67,22 @@ final class RockPaperScissors {
         final int choiceOption = 3;
         final int computerIndex = randomNumber.nextInt(choiceOption);
         final String computerChoice = choices[computerIndex];
-        let results;
+        final String results;
 
         System.out.println("User chooses: " + playerChoice);
         System.out.println("Computer chooses: " + computerChoice);
 
         if (playerChoice.equals(computerChoice)) {
-            results = "tie";
+            results = TIE;
         } else if (
                 playerChoice.equals(ROCK) && computerChoice.equals(SCISSORS)
                 || playerChoice.equals(PAPER) && computerChoice.equals(ROCK)
                 || playerChoice.equals(SCISSORS)
                     && computerChoice.equals(PAPER)) {
-            results = "win";
+            results = WIN;
         } else {
-            results = "loss";
-        } 
+            results = LOSS;
+        }
 
         return results;
     }
@@ -82,22 +97,23 @@ final class RockPaperScissors {
         System.out.println("Rock --> R, Paper --> P, Scissors --> S");
 
         // Error Check
-        while (true)  {
+        while (true) {
             System.out.print("Enter Rock(R), Paper(P) or Scissors(S): ");
             final String playerChoice = scanner.nextLine().toUpperCase();
-            if (!playerChoice.equals(ROCK) && !playerChoice.equals(PAPER) && !playerChoice.equals(SCISSORS)) {
+            if (!playerChoice.equals(ROCK) && !playerChoice.equals(PAPER)
+                && !playerChoice.equals(SCISSORS)) {
                 System.out.println("Invalid Input!");
                 break;
             } else {
                 final String finalResult = gameResults(playerChoice);
-                if (finalResult.equals("tie")) {
+                if (finalResult.equals(TIE)) {
                     System.out.println("It's a tie!");
-                } else if (finalResult.equals("win")) {
+                } else if (finalResult.equals(WIN)) {
                     System.out.println("You win!");
                 } else {
                     System.out.println("You lose!");
                 }
-            break;
+                break;
             }
         }
 
